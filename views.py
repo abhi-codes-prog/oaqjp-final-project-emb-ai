@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.urls import path
+from . import views
 
-def submit(request):
-    return render(request, 'submit.html')
-
-def show_exam_result(request):
-    return render(request, 'exam_result.html')
+urlpatterns = [
+    path('submit/', views.submit, name='submit'),
+    path('show_exam_result/', views.show_exam_result, name='show_exam_result'),
+]
