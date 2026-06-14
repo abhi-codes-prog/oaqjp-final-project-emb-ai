@@ -1,7 +1,5 @@
-from django.urls import path
-from . import views
+def submit(request, course_id):
+    pass
 
-urlpatterns = [
-    path('submit/', views.submit, name='submit'),
-    path('show_exam_result/', views.show_exam_result, name='show_exam_result'),
-]
+def show_exam_result(request, course_id, submission_id):
+    pass
