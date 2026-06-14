@@ -1,1 +1,9 @@
+<h2>{{ course.name }}</h2>
 
+{% for lesson in course.lesson_set.all %}
+    <div class="card">
+        <div class="card-body">
+            {{ lesson.title }}
+        </div>
+    </div>
+{% endfor %}
