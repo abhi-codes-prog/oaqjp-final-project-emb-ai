@@ -1,5 +1,20 @@
-def submit(request, course_id):
-    pass
+urlpatterns = [
+    path(route='', view=views.CourseListView.as_view(), name='index'),
+    path('registration/', views.registration_request, name='registration'),
+    path('login/', views.login_request, name='login'),
+    path('logout/', views.logout_request, name='logout'),
+    path('<int:pk>/', views.CourseDetailView.as_view(), name='course_details'),
+    path('<int:course_id>/enroll/', views.enroll, name='enroll'),
 
-def show_exam_result(request, course_id, submission_id):
-    pass
+    path(
+        'course/<int:course_id>/submit/',
+        views.submit,
+        name='submit'
+    ),
+
+    path(
+        'course/<int:course_id>/submission/<int:submission_id>/result/',
+        views.show_exam_result,
+        name='show_exam_result'
+    ),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
